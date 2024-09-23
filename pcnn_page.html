@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCNN Page</title>
+</head>
+<body>
+    <h1>Welcome to the PCNN Page</h1>
+    <button onclick="location.href='{{ url_for('index') }}'">to Main Page</button>
+
+    <img id="pcnnGif" src="{{ url_for('static', filename='media/pcnn1.gif') }}" alt="Animated GIF" width="300" height="200">
+
+    <script>
+        const gif = document.getElementById('pcnnGif');
+        gif.addEventListener('load', () => {
+            setTimeout(() => {
+                gif.src = gif.src.split('?')[0] + '?' + new Date().getTime();
+            }, 22_000); // Adjust the timeout to match the duration of your GIF
+        });
+    </script>
+</body>
+</html>
