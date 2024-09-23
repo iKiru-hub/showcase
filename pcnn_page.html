@@ -4,20 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PCNN Page</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: lightblue;
+        }
+        h1 {
+            font-family: 'Georgia', serif;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #pcnnGif {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
+    <div class="button-container">
+        <button onclick="location.href='{{ url_for('index') }}'">to Main Page</button>
+    </div>
     <h1>Welcome to the PCNN Page</h1>
-    <button onclick="location.href='{{ url_for('index') }}'">to Main Page</button>
-
-    <img id="pcnnGif" src="{{ url_for('static', filename='media/pcnn1.gif') }}" alt="Animated GIF" width="300" height="200">
+    <img id="pcnnGif" src="{{ url_for('static', filename='media/pcnn1.gif') }}" alt="Animated GIF" width="600" height="450">
 
     <script>
         const gif = document.getElementById('pcnnGif');
         gif.addEventListener('load', () => {
             setTimeout(() => {
                 gif.src = gif.src.split('?')[0] + '?' + new Date().getTime();
-            }, 22_000); // Adjust the timeout to match the duration of your GIF
+            }, 17_000); // Adjust the timeout to match the duration of your GIF
         });
     </script>
 </body>
-</html>
+
