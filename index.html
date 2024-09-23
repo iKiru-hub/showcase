@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main page</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@700&display=swap');
+
         body {
             background-color: rgb(160, 230, 160); /* Light green using RGB */
             display: flex;
@@ -23,26 +25,72 @@
         }
         .gif-container {
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
             flex-grow: 1;
+            width: 100%;
         }
-        .gif-container img {
-            width: 1330px;
-            height: 1100px;
+        .gif-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .gif-box img {
+            width: 700px;
+            height: 500px;
+            border: 2px solid black;
+        }
+        .gif-box.wider img {
+            width: 1000px; /* Wider width for the second GIF */
+            height: 500px; /* Same height */
+        }
+        .button-container {
+            margin-bottom: 20px;
+        }
+        button {
+            font-family: 'JetBrains Mono', cursive, serif;
+            font-size: 1.5em;
+            padding: 10px 20px;
+            border-color: black;
+            border-radius: 10px;
+            background-color: rgb(220, 250, 220);;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff9900;
         }
     </style>
 </head>
 <body>
     <h1>Place Cell Neural Network (PCNN)</h1>
     <div class="gif-container">
-        <img id="pcnn-gif" src="media/pcnn1.gif" alt="PCNN GIF">
+        <div class="gif-box">
+            <div class="button-container">
+                <button id="restart-button1">Restart GIF 1</button>
+            </div>
+            <img id="pcnn-gif1" src="media/pcnn1.gif" alt="PCNN GIF 1">
+        </div>
+        <div class="gif-box wider">
+            <div class="button-container">
+                <button id="restart-button2">Restart GIF 2</button>
+            </div>
+            <img id="pcnn-gif2" src="media/rl_1.gif" alt="PCNN GIF 2">
+        </div>
     </div>
     <script>
-        const gif = document.getElementById('pcnn-gif');
-        setInterval(() => {
-            gif.src = gif.src.split('?')[0] + '?' + new Date().getTime();
-        }, 15000); // Adjust the interval to match the GIF duration
+        const gif1 = document.getElementById('pcnn-gif1');
+        const button1 = document.getElementById('restart-button1');
+
+        const gif2 = document.getElementById('pcnn-gif2');
+        const button2 = document.getElementById('restart-button2');
+
+        button1.addEventListener('click', () => {
+            gif1.src = gif1.src.split('?')[0] + '?' + new Date().getTime();
+        });
+
+        button2.addEventListener('click', () => {
+            gif2.src = gif2.src.split('?')[0] + '?' + new Date().getTime();
+        });
     </script>
 </body>
-
+</html>
