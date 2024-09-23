@@ -3,47 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
-    <!-- <!-1- Include Socket.IO -1-> -->
-    <!-- <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script> -->
-    <!-- <!-1- Google Fonts for a fancy font -1-> -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> -->
+    <title>Main page</title>
     <style>
         body {
-            background-color: #90EE90; /* Light green background */
+            background-color: rgb(160, 230, 160); /* Light green using RGB */
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
             margin: 0;
-            font-family: Arial, sans-serif;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
         }
         h1 {
-            font-family: 'Pacifico', cursive; /* Fancy font */
-            font-size: 3em;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        button {
-            background-color: white;
             color: black;
-            border: 3px solid black; /* Thick black outline */
-            padding: 10px 20px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px; /* Add margin between buttons */
+            font-size: 2.5em;
+            font-family: 'JetBrains Mono', serif;
+            font-weight: 300; /* Light font weight */
+            margin-top: 50px;
         }
-        button:hover {
-            background-color: black;
-            color: white;
+        .gif-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+        .gif-container img {
+            width: 1330px;
+            height: 1100px;
         }
     </style>
 </head>
 <body>
-    <h1>Some cool media</h1>
-    <button onclick="location.href='{{ url_for('pcnn_page') }}'">to PCNN</button>
+    <h1>Place Cell Neural Network (PCNN)</h1>
+    <div class="gif-container">
+        <img id="pcnn-gif" src="media/pcnn1.gif" alt="PCNN GIF">
+    </div>
+    <script>
+        const gif = document.getElementById('pcnn-gif');
+        setInterval(() => {
+            gif.src = gif.src.split('?')[0] + '?' + new Date().getTime();
+        }, 15000); // Adjust the interval to match the GIF duration
+    </script>
 </body>
 

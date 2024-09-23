@@ -19,24 +19,12 @@
             font-family: 'Georgia', serif;
             margin-bottom: 20px;
         }
-        .button-container {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-        .button-container button {
-            padding: 10px 20px;
-            font-size: 16px;
-        }
         #pcnnGif {
             margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="button-container">
-        <button onclick="location.href='{{ url_for('index') }}'">to Main Page</button>
-    </div>
     <h1>Welcome to the PCNN Page</h1>
     <img id="pcnnGif" src="{{ url_for('static', filename='media/pcnn1.gif') }}" alt="Animated GIF" width="600" height="450">
 
