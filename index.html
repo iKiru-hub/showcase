@@ -14,33 +14,73 @@
             height: 100vh;
             font-family: 'Arial', sans-serif;
         }
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
         .header_title {
-            font-size: 40px;
+            font-size: 2em; /* Adjust font size relative to screen */
             font-weight: 300;
-            position: absolute;
-            top: 20px;
+            margin-top: 20px;
+            text-align: center;
         }
+
         .header_authors {
-            font-size: 30px;
+            font-size: 1.5em;
             font-weight: 150;
-            position: absolute;
-            top: 80px;
+            margin-top: 10px;
+            text-align: center;
         }
+
         .header_affiliations {
-            font-size: 20px;
+            font-size: 1.2em;
             font-weight: 150;
-            position: absolute;
-            top: 150px;
+            margin-top: 10px;
+            text-align: center;
         }
-        .header_logo_bioai {
-            position: absolute;
-            top: 20px;
-            right: 80px;
+
+        .header_logos {
+            display: flex;
+            justify-content: flex-end; /* Aligns logos to the right */
+            margin-top: 20px;
+            width: 100%; /* Ensures it spans full width */
         }
+
+        .header_logo_bioai,
         .header_logo_uio {
-            position: absolute;
-            top: 20px;
-            right: 280px;
+            margin-left: 20px; /* Add space between the logos */
+            height: 50px; /* Adjust as necessary */
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .header_title {
+                font-size: 1.8em;
+            }
+            
+            .header_authors {
+                font-size: 1.2em;
+            }
+            
+            .header_affiliations {
+                font-size: 1em;
+            }
+
+            /* Stack logos vertically for mobile */
+            .header_logos {
+                justify-content: center; /* Center-align on smaller screens */
+                flex-direction: column;
+                align-items: flex-end; /* Align to the right in vertical layout */
+            }
+
+            .header_logo_bioai,
+            .header_logo_uio {
+                margin: 10px 0;
+                height: 40px;
+            }
         }
         .gif-container {
             display: flex;
@@ -48,59 +88,85 @@
             align-items: center;
             flex-grow: 1;
             width: 100%;
-            margin-top: 300px; /* Add more margin to move the GIFs further down */
+            margin-top: 150px; /* Reduced margin for smaller screens */
             position: relative;
         }
+
         .gif-box {
             display: flex;
             align-items: center;
-            margin-bottom: 50px; /* Add more space between GIFs */
+            margin-bottom: 30px; /* Reduced space between GIFs */
         }
+
         .gif-box img {
-            width: 465px; /* 65% of 700px */
-            height: 325px; /* 65% of 500px */
+            width: 100%; /* Make the GIFs responsive, adapting to container width */
+            max-width: 465px; /* Max width for larger screens */
+            height: auto; /* Maintain aspect ratio */
             border: 2px solid black;
         }
+
         .gif-box.wider img {
-            width: 650px; /* 65% of 1000px */
-            height: 325px; /* 65% of 500px */
+            max-width: 650px; /* Adjust for wider images */
         }
+
         .button-container {
-            position: absolute;
-            left: 400px; /* Align buttons at the same x-value */
+            display: flex;
+            justify-content: center; /* Center-align buttons */
+            margin-top: 20px;
+            margin-left: 20px; /* Add space between GIF and button */
         }
+
         button {
             font-family: 'Courier', serif;
-            font-size: 1.5em;
+            font-size: 1.2em; /* Slightly smaller font for mobile */
             padding: 10px 20px;
             border-color: black;
             border-radius: 10px;
-            background-color: rgb(220, 250, 220);;
+            background-color: rgb(220, 250, 220);
             cursor: pointer;
         }
+
         button:hover {
             background-color: #ff9900;
         }
+
         figure {
             display: flex;
             align-items: center;
             margin: 0;
         }
-        .text_caption_1 {
-            font-size: 1.5em;
-            font-family: 'Courier', mono, serif;
-            font-weight: 200; /* Bold font weight */
-            position: absolute;
-            top: 400px;
-            right: 400px;
-        }
+
+        .text_caption_1,
         .text_caption_2 {
-            font-size: 1.5em;
+            font-size: 1.2em; /* Slightly smaller font for mobile */
             font-family: 'Courier', mono, serif;
-            font-weight: 200; /* Bold font weight */
-            position: absolute;
-            top: 800px;
-            right: 400px;
+            font-weight: 200;
+            margin-top: 20px; /* Use margin instead of absolute positioning */
+            text-align: center; /* Center the captions */
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .gif-container {
+                margin-top: 100px; /* Further reduce margin for mobile screens */
+            }
+
+            .gif-box img {
+                max-width: 100%; /* Ensure GIFs take full width on smaller screens */
+            }
+
+            .button-container {
+                justify-content: center; /* Ensure buttons are centered on mobile */
+                margin-left: 0; /* Remove fixed left alignment */
+            }
+
+            .text_caption_1,
+            .text_caption_2 {
+                font-size: 1em;
+                text-align: center;
+                margin-top: 20px;
+                position: static; /* Make captions flow with the content, not fixed */
+            }
         }
     </style>
 </head>
