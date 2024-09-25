@@ -21,29 +21,29 @@ body {
     line-height: 1.6;
 }
 
-/* Header styles */
+/* Header styles with reduced font sizes */
 .header_title {
     font-family: var(--header-font);
-    font-size: 27;
+    font-size: 2.2em; /* Reduced from 2.5em */
     font-weight: 700;
-    margin: 40px 0 20px;
+    margin: 30px 0 15px; /* Slightly reduced margins */
     text-align: center;
     color: var(--primary-color);
     letter-spacing: -0.5px;
 }
 
 .header_authors {
-    font-size: 1.4em;
+    font-size: 1.2em; /* Reduced from 1.4em */
     font-weight: 400;
-    margin: 10px 0;
+    margin: 8px 0; /* Slightly reduced margins */
     text-align: center;
     color: var(--secondary-color);
 }
 
 .header_affiliations {
-    font-size: 1.1em;
+    font-size: 1em; /* Reduced from 1.1em */
     font-weight: 300;
-    margin: 5px 0 20px;
+    margin: 4px 0 15px; /* Slightly reduced margins */
     text-align: center;
     color: var(--text-color);
     opacity: 0.8;
@@ -55,20 +55,20 @@ hr {
     height: 1px;
     background-color: var(--secondary-color);
     opacity: 0.3;
-    margin: 20px 0;
+    margin: 15px 0; /* Slightly reduced margins */
 }
 
 .header_logos {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px 0 40px;
+    margin: 15px 0 30px; /* Slightly reduced margins */
     width: 100%;
 }
 
 .header_logo_bioai,
 .header_logo_uio {
-    margin: 0 20px;
+    margin: 0 15px; /* Slightly reduced margins */
     transition: transform 0.3s ease;
 }
 
@@ -76,6 +76,8 @@ hr {
 .header_logo_uio:hover {
     transform: scale(1.05);
 }
+
+/* The rest of the CSS remains unchanged */
 
 /* GIF container styles */
 .gif-container {
@@ -166,16 +168,16 @@ button:hover {
 /* Responsive design */
 @media (max-width: 768px) {
     .header_title {
-        font-size: 2em;
+        font-size: 1.25em; /* Reduced from 2em */
         padding: 0 15px;
     }
-    
+
     .header_authors {
-        font-size: 1.2em;
+        font-size: 1.0em; /* Reduced from 1.2em */
     }
-    
+
     .header_affiliations {
-        font-size: 1em;
+        font-size: 0.75em; /* Reduced from 1em */
         padding: 0 15px;
     }
     
