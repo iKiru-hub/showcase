@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main page</title>
+    <meta name="description" content="width=device-width, initial-scale=1.0">
+    <title>RL Cognitive Maps</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@700&display=swap');
-
         body {
             background-color: rgb(160, 230, 160); /* Light green using RGB */
             display: flex;
@@ -16,36 +14,60 @@
             height: 100vh;
             font-family: 'Arial', sans-serif;
         }
-        h1 {
-            color: black;
-            font-size: 2.5em;
-            font-family: 'Courier', serif;
-            font-weight: 300; /* Light font weight */
-            margin-top: 50px;
+        .header_title {
+            font-size: 40px;
+            font-weight: 300;
+            position: absolute;
+            top: 20px;
+        }
+        .header_authors {
+            font-size: 30px;
+            font-weight: 150;
+            position: absolute;
+            top: 80px;
+        }
+        .header_affiliations {
+            font-size: 20px;
+            font-weight: 150;
+            position: absolute;
+            top: 150px;
+        }
+        .header_logo_bioai {
+            position: absolute;
+            top: 20px;
+            right: 80px;
+        }
+        .header_logo_uio {
+            position: absolute;
+            top: 20px;
+            right: 280px;
         }
         .gif-container {
             display: flex;
-            justify-content: space-around;
+            flex-direction: column;
             align-items: center;
             flex-grow: 1;
             width: 100%;
+            margin-top: 300px; /* Add more margin to move the GIFs further down */
+            position: relative;
         }
         .gif-box {
             display: flex;
-            flex-direction: column;
             align-items: center;
+            margin-bottom: 50px; /* Add more space between GIFs */
         }
         .gif-box img {
-            width: 700px;
-            height: 500px;
+            width: 465px; /* 65% of 700px */
+            height: 325px; /* 65% of 500px */
             border: 2px solid black;
         }
         .gif-box.wider img {
-            width: 1000px; /* Wider width for the second GIF */
-            height: 500px; /* Same height */
+            width: 650px; /* 65% of 1000px */
+            height: 325px; /* 65% of 500px */
         }
         .button-container {
-            margin-bottom: 20px;
+            position: absolute;
+            left: 400px; /* Align buttons at the same x-value */
         }
         button {
             font-family: 'Courier', serif;
@@ -59,24 +81,82 @@
         button:hover {
             background-color: #ff9900;
         }
+        figure {
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+        .text_caption_1 {
+            font-size: 1.5em;
+            font-family: 'Courier', mono, serif;
+            font-weight: 200; /* Bold font weight */
+            position: absolute;
+            top: 400px;
+            right: 400px;
+        }
+        .text_caption_2 {
+            font-size: 1.5em;
+            font-family: 'Courier', mono, serif;
+            font-weight: 200; /* Bold font weight */
+            position: absolute;
+            top: 800px;
+            right: 400px;
+        }
     </style>
 </head>
 <body>
-    <h1>Place Cell Neural Network (PCNN)</h1>
+
+    <!-- TITLE -->
+    <h1 class="header_title">
+            Neuromodulated online cognitive maps for reinforcement learning
+    </h1>
+    <h2 class="header_authors">
+            <i>K. Danieli<sup>1</sup>, M.E.Lepperød<sup>2</sup>, M.Fyhn<sup>1,2</sup></i>
+    </h2>
+    <h3 class="header_affiliations">
+            <i><sup>1</sup>Department of Biosciences, University of Oslo; <sup>2</sup>Simula Research Laboratory</i>
+    </h3>
+
+    <!-- LOGOS -->
+    <div class="header_logo_bioai">
+        <img src="media/bioAI_logo.png" alt="UiO logo" width="210" height="160">
+    </div>  
+    <div class="header_logo_uio">
+        <img src="media/logo_UiO short.png" alt="UiO logo" width="280" height="160">
+    </div>
+
+    <!-- GIFs -->
     <div class="gif-container">
+
         <div class="gif-box">
             <div class="button-container">
-                <button id="restart-button1">Restart GIF 1</button>
+                <button id="restart-button1">Exploration</button>
             </div>
-            <img id="pcnn-gif1" src="media/roaming_222509.gif" alt="PCNN GIF 1">
+            <figure>
+                <img id="pcnn-gif1" src="media/roaming_222509_static.png" alt="PCNN GIF 1">
+            </figure>
         </div>
+
         <div class="gif-box wider">
             <div class="button-container">
-                <button id="restart-button2">Restart GIF 2</button>
+                <button id="restart-button2">Target Reaching</button>
             </div>
-            <img id="pcnn-gif2" src="media/rl_1.gif" alt="PCNN GIF 2">
+            <figure>
+                <img id="pcnn-gif2" src="media/rl_1_static.png" alt="PCNN GIF 2">
+            </figure>
         </div>
     </div>
+
+    <!-- CAPTIONS -->
+    <div class="text_caption_1">
+            This is for generating PC
+    </div>
+
+    <div class="text_caption_2">
+            This is for exploiting pc
+    </div>
+
+    <!-- SCRIPT -->
     <script>
         const gif1 = document.getElementById('pcnn-gif1');
         const button1 = document.getElementById('restart-button1');
@@ -85,12 +165,12 @@
         const button2 = document.getElementById('restart-button2');
 
         button1.addEventListener('click', () => {
-            gif1.src = gif1.src.split('?')[0] + '?' + new Date().getTime();
+            gif1.src = 'media/roaming_222509.gif';
         });
 
         button2.addEventListener('click', () => {
-            gif2.src = gif2.src.split('?')[0] + '?' + new Date().getTime();
+            gif2.src = 'media/rl_1.gif';
         });
     </script>
 </body>
-</html>
+<html>
