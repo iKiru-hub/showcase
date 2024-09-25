@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RL results">
+    <meta name="author" content="K. Danieli">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RL Cognitive Maps</title>
     <style>
         body {
@@ -15,56 +17,47 @@
             font-family: 'Arial', sans-serif;
         }
 
-        /* Header styles */
-        .header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
         .header_title {
             font-size: 2em;
             font-weight: 300;
             margin-top: 20px;
             text-align: center;
         }
+
         .header_authors {
             font-size: 1.5em;
             font-weight: 150;
             margin-top: 10px;
             text-align: center;
         }
+
         .header_affiliations {
             font-size: 1.2em;
             font-weight: 150;
             margin-top: 10px;
             text-align: center;
         }
+
         .header_logos {
             display: flex;
-            justify-content: flex-end; /* Aligns logos to the right */
+            justify-content: center; /* Center the logos */
+            align-items: center;
             margin-top: 20px;
             width: 100%; /* Ensures it spans full width */
         }
-        .header_logo_bioai{
-            margin-left: 220px; /* Add space between the logos */
-            margin-bottom: -50px; /* Add space between the logos */
-            height: 50px; /* Adjust as necessary */
-        }
+
+        .header_logo_bioai,
         .header_logo_uio {
-            margin-left: -140px; /* Add space between the logos */
-            margin-bottom: 200px; /* Add space between the logos */
-            height: 50px; /* Adjust as necessary */
+            margin: 0 10px; /* Add space between the logos */
+            height: 80px; /* Adjust as necessary */
         }
 
-        /* GIF styles */
         .gif-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            flex-grow: 1;
             width: 100%;
-            margin-top: 150px; /* Reduced margin for smaller screens */
+            margin-top: 50px; /* Adjusted margin */
             position: relative;
         }
 
@@ -80,17 +73,27 @@
             height: auto; /* Maintain aspect ratio */
             border: 2px solid black;
         }
+
         .gif-box.wider img {
             max-width: 650px; /* Adjust for wider images */
         }
+
         .button-container {
             display: flex;
-            justify-content: center; /* Center-align buttons */
-            margin-top: 20px;
-            margin-left: 20px; /* Add space between GIF and button */
+            justify-content: center;
+            width: 100%;
         }
+
+        #restart-button1 {
+            margin-bottom: -40px; /* Move the first button closer to the first GIF */
+        }
+
+        #restart-button2 {
+            margin-top: 0px; /* Adjust the position of the second button */
+        }
+
         button {
-            font-family: 'Courier', serif;
+            font-family: 'Arial', serif;
             font-size: 1.2em; /* Slightly smaller font for mobile */
             padding: 10px 20px;
             border-color: black;
@@ -120,35 +123,23 @@
 
         /* Responsive design for smaller screens */
         @media (max-width: 768px) {
-
             .header_title {
                 font-size: 1.8em;
             }
             .header_authors {
                 font-size: 1.2em;
+                margin-top: -25px;
             }
             .header_affiliations {
                 font-size: 1em;
+                margin-top: -10px;
             }
 
-            /* Stack logos vertically for mobile */
-            .header_logos {
-                justify-content: center; /* Center-align on smaller screens */
-                flex-direction: column;
-                align-items: flex-end; /* Align to the right in vertical layout */
-            }
-            .header_logo_bioai{
-                margin: 10px 0;
-                margin-left: 0; /* Remove fixed margin */
-                height: 40px;
-            }
+            .header_logo_bioai,
             .header_logo_uio {
-                margin: 10px 0;
-                margin-left: 20; /* Remove fixed margin */
-                height: 40px;
+                height: 40px; /* Adjust as necessary */
             }
 
-            /* Adjust GIF container margin for mobile */
             .gif-container {
                 margin-top: 100px; /* Further reduce margin for mobile screens */
             }
@@ -156,11 +147,11 @@
                 max-width: 100%; /* Ensure GIFs take full width on smaller screens */
             }
             .button-container {
-                justify-content: left; /* Ensure buttons are centered on mobile */
-                margin-left: 0; /* Remove fixed left alignment */
+                margin: 10px 0;
+                margin-left: 10px; /* Remove fixed left alignment */
+                margin-top: 80px; /* Further reduce margin for mobile screens */
             }
 
-            /* Adjust button font size for mobile */
             .text_caption_1 {
                 font-size: 1em;
                 text-align: center;
@@ -181,39 +172,43 @@
 
     <!-- TITLE -->
     <h1 class="header_title">
-            Neuromodulated online cognitive maps for reinforcement learning
+        Neuromodulated online cognitive maps for reinforcement learning
     </h1>
+    <hr>
     <h2 class="header_authors">
-            <i>K. Danieli<sup>1</sup>, M.E.Lepperød<sup>2</sup>, M.Fyhn<sup>1,2</sup></i>
+        <i>K. Danieli<sup>1</sup>, M.E.Lepperød<sup>2</sup>, M.Fyhn<sup>1,2</sup></i>
     </h2>
     <h3 class="header_affiliations">
-            <i><sup>1</sup>Department of Biosciences, University of Oslo; <sup>2</sup>Simula Research Laboratory</i>
+        <i><sup>1</sup>Department of Biosciences, University of Oslo; <sup>2</sup>Simula Research Laboratory</i>
     </h3>
+    <hr>
 
     <!-- LOGOS -->
-    <div class="header_logo_bioai">
-        <img src="media/bioAI_logo.png" alt="UiO logo" width="160" height="120">
-    </div>  
-    <div class="header_logo_uio">
-        <img src="media/logo_UiO short.png" alt="UiO logo" width="210" height="120">
+    <div class="header_logos">
+        <div class="header_logo_bioai">
+            <img src="media/bioAI_logo.png" alt="BioAI logo" width="80" height="60">
+        </div>  
+        <div class="header_logo_uio">
+            <img src="media/logo_UiO short.png" alt="UiO logo" width="105" height="60">
+        </div>
+    </div>
+
+    <!-- GIFs buttons -->
+    <div class="button-container">
+        <button id="restart-button1">Exploration</button>
     </div>
 
     <!-- GIFs -->
     <div class="gif-container">
-
         <div class="gif-box">
-            <div class="button-container">
-                <button id="restart-button1">Exploration</button>
-            </div>
             <figure>
                 <img id="pcnn-gif1" src="media/roaming_222509_static.png" alt="PCNN GIF 1">
             </figure>
         </div>
-
+        <div class="button-container">
+            <button id="restart-button2">Target Reaching</button>
+        </div>
         <div class="gif-box wider">
-            <div class="button-container">
-                <button id="restart-button2">Target Reaching</button>
-            </div>
             <figure>
                 <img id="pcnn-gif2" src="media/rl_1_static.png" alt="PCNN GIF 2">
             </figure>
@@ -222,11 +217,11 @@
 
     <!-- CAPTIONS -->
     <div class="text_caption_1">
-            This is for generating PC
+        This is for generating PC
     </div>
 
     <div class="text_caption_2">
-            This is for exploiting pc
+        This is for exploiting pc
     </div>
 
     <!-- SCRIPT -->
@@ -246,4 +241,4 @@
         });
     </script>
 </body>
-<html>
+</html>
