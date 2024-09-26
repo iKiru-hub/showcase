@@ -33,31 +33,36 @@
         </div>
     </div>
     <!-- GIFs buttons -->
-    <div class="button-container">
-        <button id="restart-button1">Exploration</button>
-    </div>
     <!-- GIFs -->
     <div class="gif-container">
         <div class="gif-box">
+            <div class="text_caption_1">
+                <h3>Formation of a cognitive map</h3>
+                    An agent roaming in a 2D environment, with a random <span style="color: red">trajectory</span>. As it goes, it builds a spatial representation by tuning cells to its current position. These <span style="color: blue">place cells</span> (PCs) form a network (graph)
+                    with <span style="color: blue">connections</span> defined through K-Neareast Neighbor (within a certain radius). The <i>formation</i> of new cells is modulated by the level of <span style="color: blue">acetilcholine</span> (ACh). When the agent passes near a rewarded
+                    area, it receives a spike of <span style="color: green">dopamine</span> (DA), which modulates the <i>spatial remapping</i> of nearby place cells towards its current position.
+            </div>
+            <div class="button-container">
+                <button id="restart-button1">restart gif</button>
+            </div>
             <figure>
                 <img id="pcnn-gif1" src="media/roaming_2_static.png" alt="PCNN GIF 1">
             </figure>
-            <div class="text_caption_1">
-                This is for generating PC
-            </div>
         </div>
 
-
-    <div class="button-container">
-        <button id="restart-button2">Target</button>
-    </div>
+    <!-- Target-reaching behaviour -->
     <div class="gif-box wider">
+        <div class="text_caption_2">
+            <h3>Exploitation of the cognitive map</h3>
+                    Once the agent has formed a spatial representation, it can use it to navigate towards a <span style="color: blue">target</span> location. The algorithm implemented here is based on matching the population vector (<i>i.e.</i> representation) corresponding to the current location with the one of the target, and
+                    chosing a direction accordingly.
+        </div>
+        <div class="button-container">
+            <button id="restart-button2">restart gif</button>
+        </div>
         <figure>
             <img id="pcnn-gif2" src="media/rl_1_static.png" alt="PCNN GIF 2">
         </figure>
-        <div class="text_caption_2">
-            This is for exploiting PC
-        </div>
     </div>
     </div>
 

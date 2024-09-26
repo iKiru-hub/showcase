@@ -1,4 +1,4 @@
 #!/bin/bash
 
-python -m http.server 5002
+python3 -m http.server 5002
 
