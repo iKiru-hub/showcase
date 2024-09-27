@@ -32,13 +32,30 @@
             <img src="media/logo_UiO short.png" alt="UiO logo" width="105" height="60">
         </div>
     </div>
+
+    <!-- Architecture model -->
+    <div class="model-container">
+        <div class="model-box">
+                <div class="text_caption_1">
+                <h3>Architecture: Place Cell Neural Network</h3>
+                The model is structured is two component: a spatial layer, whose purpose is to receives a 2D position and casts it to an higher dimensional space (here by means of Gaussian place fields), and a network of un-tuned neurons, which receives the activation from the earlier layer. During
+                    training, through competitive dynamics and homeostatic mechanisms, the un-tuned neurons progressively form spatial fields over the input representation, becoming place cells (and hence the name <i>PCNN</i>. Plasticity is supported by <span style="color:
+                        blue">cholinergic</span> (ACh)
+                    and <span style="color: green">dopaminergic</span> (DA) stimulation, which work as finite synaptic resources.
+                </div>
+            <figure>
+                <img id="arc-mod" src="media/new_minimal_architecture.png" alt="Architecture 1">
+            </figure>
+        </div>
+    </div>
+
     <!-- GIFs buttons -->
     <!-- GIFs -->
     <div class="gif-container">
         <div class="gif-box">
             <div class="text_caption_1">
                 <h3>Formation of a cognitive map</h3>
-                    An agent roaming in a 2D environment, with a random <span style="color: red">trajectory</span>. As it goes, it builds a spatial representation by tuning cells to its current position. These <span style="color: blue">place cells</span> (PCs) form a network (graph)
+                    An agent, endowed with the PCNN model, roaming in a 2D environment, with a random <span style="color: red">trajectory</span>. As it goes, it builds a spatial representation by tuning cells to its current position. These <span style="color: blue">place cells</span> (PCs) form a network (graph)
                     with <span style="color: blue">connections</span> defined through K-Neareast Neighbor (within a certain radius). The <i>formation</i> of new cells is modulated by the level of <span style="color: blue">acetilcholine</span> (ACh). When the agent passes near a rewarded
                     area, it receives a spike of <span style="color: green">dopamine</span> (DA), which modulates the <i>spatial remapping</i> of nearby place cells towards its current position.
             </div>
@@ -52,7 +69,7 @@
 
     <!-- Target-reaching behaviour -->
     <div class="gif-box wider">
-        <div class="text_caption_2">
+        <div class="text_caption_1">
             <h3>Exploitation of the cognitive map</h3>
                     Once the agent has formed a spatial representation, it can use it to navigate towards a <span style="color: blue">target</span> location. The algorithm implemented here is based on matching the population vector (<i>i.e.</i> representation) corresponding to the current location with the one of the target, and
                     chosing a direction accordingly.

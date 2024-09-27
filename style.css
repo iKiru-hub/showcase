@@ -154,7 +154,8 @@ button:hover {
 
 /* Caption styles */
 .text_caption_1,
-.text_caption_2 {
+.text_caption_2
+.text_caption_0{
     font-size: 1.1em;
     font-family: var(--body-font);
     font-weight: 400;
@@ -164,6 +165,53 @@ button:hover {
     background-color: white;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
+
+/* model rchitecture figure */
+/* GIF container styles */
+.model-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 1000px;
+    margin-top: 20px;
+}
+
+.model-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    width: 100%;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.model-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+}
+
+.model-architecture {
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 20px;
+}
+
+.model-box figure {
+    margin: 0;
+    width: 100%;
+}
+
+.model-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 
 /* Responsive design */
 @media (max-width: 768px) {
@@ -195,8 +243,18 @@ button:hover {
     }
     
     .text_caption_1,
-    .text_caption_2 {
+    .text_caption_2,
+    .text_caption_0{
         font-size: 1em;
         padding: 12px 15px;
     }
+
+    .model-container {
+        width: 95%;
+    }
+
+    .model-box {
+        margin-bottom: 30px;
+    }
+
 }
