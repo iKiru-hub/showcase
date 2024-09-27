@@ -67,18 +67,34 @@
             </figure>
         </div>
 
+    <!-- Policy -->
+    <div class="model-container">
+        <div class="model-box">
+                <div class="text_caption_1">
+                <h3>Exploitation of the cognitive map</h3>
+                    Once the agent has formed a spatial representation, it can use it to navigate towards a target location. The algorithm implemented here is based on matching the population vector (<i>i.e.</i> representation) corresponding to the current location
+                        with the a weighted sum of the representation of the proximal locations and the target location. The action is then chosen by computing the <i>cosine similarity</i> and mapped onto the 2D space.
+                        The policy depends on a parameter epsilon <i>(ε)</i>, which determines the weight of the two components in the sum.
+                </div>
+            <figure>
+                <img id="policy-desc" src="media/policy_1.png" alt="Policy 1">
+            </figure>
+        </div>
+    </div>
+
     <!-- Target-reaching behaviour -->
     <div class="gif-box wider">
         <div class="text_caption_1">
-            <h3>Exploitation of the cognitive map</h3>
-                    Once the agent has formed a spatial representation, it can use it to navigate towards a <span style="color: blue">target</span> location. The algorithm implemented here is based on matching the population vector (<i>i.e.</i> representation) corresponding to the current location with the one of the target, and
-                    chosing a direction accordingly.
+            <h3>Implementation</h3>
+                    A simulation has been implemented using various environments, here for example it is chosen a square arena with a wall in between, to test the agent's ability to navigate towards a <span style="color: green">target</span> location. The agent is initialized in a random position and the target is placed in the opposite
+                    corner. The agent is allowed to move in the 2D space, and the policy is implemented as illustrated above. It is also shown a livestream of the current population vector (representation) and the target one. The flashing nodes correspond to the neurons active in the representation
+                    of the next position and corresponds to the locations where the agent "thinks" it can move, the actual action is a sort of weighted average of the place field centers of these active neurons.
         </div>
         <div class="button-container">
             <button id="restart-button2">restart gif</button>
         </div>
         <figure>
-            <img id="pcnn-gif2" src="media/rl_1_static.png" alt="PCNN GIF 2">
+            <img id="pcnn-gif2" src="media/rlroom_e_1_static.png" alt="PCNN GIF 2">
         </figure>
     </div>
     </div>
@@ -93,7 +109,7 @@
             gif1.src = 'media/roaming_2.gif';
         });
         button2.addEventListener('click', () => {
-            gif2.src = 'media/rl_1.gif';
+            gif2.src = 'media/rlroom_e_1.gif';
         });
     </script>
 </body>
