@@ -5,6 +5,8 @@
     <meta name="description" content="RL results">
     <meta name="author" content="K. Danieli">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>RL Cognitive Maps</title>
     <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="style.css"> 
@@ -38,7 +40,7 @@
         <div class="model-box">
                 <div class="text_caption_1">
                 <h3>Architecture: Place Cell Neural Network</h3>
-                The model is structured is two component: a spatial layer, whose purpose is to receives a 2D position and casts it to an higher dimensional space (here by means of Gaussian place fields), and a network of un-tuned neurons, which receives the activation from the earlier layer. During
+                The model is structured is two component: a spatial layer, whose purpose is to receive a 2D position and cast it to an higher dimensional space (here by means of Gaussian place fields), and a network of un-tuned neurons, which receives the activation from the earlier layer. During
                     training, through competitive dynamics and homeostatic mechanisms, the un-tuned neurons progressively form spatial fields over the input representation, becoming place cells (and hence the name <i>PCNN</i>. Plasticity is supported by <span style="color:
                         blue">cholinergic</span> (ACh)
                     and <span style="color: green">dopaminergic</span> (DA) stimulation, which work as finite synaptic resources.
@@ -72,9 +74,11 @@
         <div class="model-box">
                 <div class="text_caption_1">
                 <h3>Exploitation of the cognitive map</h3>
-                    Once the agent has formed a spatial representation, it can use it to navigate towards a target location. The algorithm implemented here is based on matching the population vector (<i>i.e.</i> representation) corresponding to the current location
-                        with the a weighted sum of the representation of the proximal locations and the target location. The action is then chosen by computing the <i>cosine similarity</i> and mapped onto the 2D space.
-                        The policy depends on a parameter epsilon <i>(ε)</i>, which determines the weight of the two components in the sum.
+                    Once the agent has formed a spatial representation, it can use it to navigate towards a target location.
+                        The algorithm implemented here is based on matching the population vector (<i>i.e.</i> representation) corresponding to the current location
+                        with the desired one by taking the <i>cosine similarity</i> and map it onto the 2D space. The desired representation is calculated as the weighted sum (parametrized by \(\epsilon\)) of the representation of the proximal and the target location. In particular, the proximal
+                        positions (in terms of spatial representation) are obtained by making an internal step in the network using the recurrent weights. Further, the function \(\varphi\) can modulate the activation of the active neurons and prioritize the highest or lowest active ones
+                        \(\varphi(\vec{u})=\vec{u}+\lambda(\langle\vec{u}\rangle-\vec{u})\), this can be useful when the agent get stuck (<i>e.g.</i> not following the straightest route might be better).
                 </div>
             <figure>
                 <img id="policy-desc" src="media/policy_1.png" alt="Policy 1">
