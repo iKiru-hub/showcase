@@ -40,7 +40,7 @@
         <div class="model-box">
                 <div class="text_caption_1">
                 <h3>Architecture: Place Cell Neural Network</h3>
-                The model is structured is two component: a spatial layer, whose purpose is to receive a 2D position and cast it to an higher dimensional space (here by means of Gaussian place fields), and a network of un-tuned neurons, which receives the activation from the earlier layer. During
+                The model is structured is two component: a spatial layer, whose purpose is to receive a 2D position and cast it to an higher dimensional space (here by means of Gaussian place fields), and a network of un-tuned neurons, which receives the activation of the upstream layer. During
                     training, through competitive dynamics and homeostatic mechanisms, the un-tuned neurons progressively form spatial fields over the input representation, becoming place cells (and hence the name <i>PCNN</i>. Plasticity is supported by <span style="color:
                         blue">cholinergic</span> (ACh)
                     and <span style="color: green">dopaminergic</span> (DA) stimulation, which work as finite synaptic resources.
@@ -57,8 +57,8 @@
         <div class="gif-box">
             <div class="text_caption_1">
                 <h3>Formation of a cognitive map</h3>
-                    An agent, endowed with the PCNN model, roaming in a 2D environment, with a random <span style="color: red">trajectory</span>. As it goes, it builds a spatial representation by tuning cells to its current position. These <span style="color: blue">place cells</span> (PCs) form a network (graph)
-                    with <span style="color: blue">connections</span> defined through K-Neareast Neighbor (within a certain radius). The <i>formation</i> of new cells is modulated by the level of <span style="color: blue">acetilcholine</span> (ACh). When the agent passes near a rewarded
+                    An agent endowed with the PCNN model roams a 2D environment with a random <span style="color: red">trajectory</span>. As it goes, it builds a spatial representation by tuning cells to its current position. These <span style="color: blue">place cells</span> (PCs) form a network (graph)
+                    with <span style="color: blue">connections</span> defined through a K-Neareast Neighbor algorithm (within a certain distance). The <i>formation</i> of new cells is modulated by the level of <span style="color: blue">acetilcholine</span> (ACh). When the agent passes near a rewarded
                     area, it receives a spike of <span style="color: green">dopamine</span> (DA), which modulates the <i>spatial remapping</i> of nearby place cells towards its current position.
             </div>
             <div class="button-container">
@@ -91,8 +91,8 @@
         <div class="text_caption_1">
             <h3>Implementation</h3>
                     A simulation has been implemented using various environments, here for example it is chosen a square arena with a wall in between, to test the agent's ability to navigate towards a <span style="color: green">target</span> location. The agent is initialized in a random position and the target is placed in the opposite
-                    corner. The agent is allowed to move in the 2D space, and the policy is implemented as illustrated above. It is also shown a livestream of the current population vector (representation) and the target one. The flashing nodes correspond to the neurons active in the representation
-                    of the next position and corresponds to the locations where the agent "thinks" it can move, the actual action is a sort of weighted average of the place field centers of these active neurons.
+                    corner. The agent is allowed to move in the 2D space, and the policy is implemented as illustrated above. It is also plotted a record of the current population vector (representation) and the target one. The flashing nodes in the arena correspond to the neurons active in the representation
+                    of the next position and correspond to the locations where the agent "thinks" it can move, the actual action is a sort of weighted average of the place field centers of these active neurons.
         </div>
         <div class="button-container">
             <button id="restart-button2">restart gif</button>
